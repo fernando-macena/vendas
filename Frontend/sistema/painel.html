@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Painel administrativo</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../css/painel.css">
+
+		<script type="text/javascript">
+
+			document.addEventListener("DOMContentLoaded", mostrarMenuOpcoes())
+
+			function mostrarMenuOpcoes() {
+				let ajax = new XMLHttpRequest()
+
+				ajax.open("GET", "menu_opcoes.html", true)
+				ajax.send()
+
+				ajax.onreadystatechange = () => {
+					if(ajax.readyState == 4 && ajax.status == 200) {
+						document.getElementById("conteudo-esquerda").innerHTML = ajax.responseText
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id=conteudo>
+			<div id="lateral-esquerda">
+				<div id="cabecalho-esquerda">
+					<img src="../img/painel/PanelLogo.svg">
+					<hr>
+				</div>
+
+				<div id="conteudo-esquerda">
+					Carregando...
+				</div>
+			</div> <!-- fim lateral esquerda -->
+
+			<div id="lateral-direita">
+				<div id="cabecalho-direita">			
+					<div id="avatar" onclick="document.getElementById('menu-configuracoes').showModal()">
+						<!-- Imagem de perfil -->
+						<img id="imagem-perfil">
+					</div>
+
+					<dialog id="menu-configuracoes">
+						<button id="sair" onclick="document.getElementById('menu-configuracoes').close()">
+							X
+						</button>
+
+						<p>asdasdkasdkhasdh</p>
+					</dialog>
+				</div>
+
+				<div>
+					<iframe src="produtos.html" id="iframeProdutos" width="800" height="500"></iframe>
+				</div>
+			</div> <!-- Fim lateral direita -->
+		</div>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+body {
+	background-color: #D9D9D9;
+}
+
+#container {
+	padding: 30px;
+
+	background-color: #FBF8EC;
+	border-radius: 13px;
+}
+
+.botao button {
+	display: flex;
+
+	gap: 17px;
+
+	align-items: center;
+
+	background-color: #81C989;
+
+	border: 3px solid transparent;
+	border-radius: 3px;
+
+	padding: 10px;
+
+	font-size: 20px;
+}
+
+.botao button:hover {
+	border: 3px solid red;
+}
+
+.botao button:active {
+	transform: scale(0.97);
+}
+
+#conteudo {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-areas: 
+	"item1 item2"
+	"item3 item3";
+
+	margin-top: 20px;
+}
+
+
+#conteudo #mostrar{
+	
+	grid-area: item1;
+}
+
+#conteudo #buscar{
+
+	grid-area: item2;
+
+	margin-left: auto;
+}
+
+#conteudo #tabela_conteudo{
+	border: 3px solid red;
+	grid-area: item3;
+
+	height: 60vh;
+	margin-top: 7px;
+}
+
+.inputError {
+	border-color: red;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../css/produtos.css">
+		<script>
+			function validaEntrada(log, idElemento, tipoValidacao) {
+				console.log("Valida entrada: " + log)
+
+				elemento = document.getElementById(idElemento)
+				input = elemento.querySelector('input')
+				resultadoValidacao = elemento.querySelector('#resultadoValidacao')
+
+				if(tipoValidacao === "numerico") {
+					if(log === "") {
+						input.value = null
+
+						input.classList.add("inputError")
+
+						resultadoValidacao.innerText = 'Digite um valor válido'
+					} else {
+						input.classList.remove("inputError")
+						resultadoValidacao.innerText = ""
+					}
+				} else {
+
+				}
+
+				
+			}
+
+			function adicionaListener(idElemento, tipoValidacao) {				
+				document.getElementById(idElemento).addEventListener("keydown", (event) => 
+						{
+							if(event.key === "Enter") 
+							{
+								var input = document.getElementById(idElemento).querySelector('input')
+
+								var log = input.value
+
+								validaEntrada(log, idElemento, tipoValidacao)
+							}
+						}
+					)
+			}
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="cabecalho">
+				<div class="botao">
+					<button><img src="../img/produto/mais.svg"><span>Novo</span></button>
+				</div>
+			</div>
+
+			<div id="conteudo">
+
+				<div id="mostrar" onclick="adicionaListener('mostrar', 'numerico')">
+					<span>Mostrar:</span> <input type="number" min="0" max="100"> <span id="resultadoValidacao"></span>
+				</div>
+
+				<div id="buscar" onclick="adicionaListener('buscar', 'textual')">
+					<span>Buscar:</span> <input type="text"> <span id="resultadoValidacao"></span>
+				</div>
+				
+				<div id="tabela_conteudo">
+					TAbela conteudo aqui
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

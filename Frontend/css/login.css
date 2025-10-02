@@ -1,0 +1,130 @@
+body {
+	background-color: #e8f3f1;
+	margin-top: 5px;
+
+	overflow: hidden;
+}
+
+/** Contem o cabecalho e o conteudo principal **/
+#container-principal {
+	width: 1082px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0px;
+}
+
+#cabecalho {
+	background-image: url("../img/login/lg-cabecalho-login.svg");
+	background-repeat: none;
+	border-radius: 13px 13px 0px 0px;
+	height: 80px;
+}
+
+#titulo-cabecalho {
+	margin: 0px;
+	text-align: center;
+	color: #DFEAE4;
+	font-family: sans-serif;
+	font-size: 20px;
+	padding: 45px;
+	letter-spacing: 3px;
+}
+
+/** contem a lateral direita e o container login**/
+#conteudo {
+	position: relative;
+	height: 584px;
+}
+
+/** Define uma lateral com metade do comprimento do conteiner principal e 
+ 	que fica atras do container login**/
+#lateral-direita {
+	display: block;
+	width: 541px;
+	height: 95%;
+	background-color: #81B7A8;
+	z-index: 1;
+}
+
+/** contem os inputs e o cabecalho do login **/
+#container-login {
+	background-color: #D9D9D9;
+	height: 300px;
+	width: auto; 
+	/*border: solid 5px mediumpurple;*/
+	border-radius: 10px;
+	position: absolute;
+	top: 20%;
+	right: 35%;
+	left: 35%;
+	z-index: 2;
+}
+
+#conteudo-login {
+	/*border: solid 5px blue;*/
+	text-align: center;
+}
+
+#conteudo-login img{
+	/*border: solid 5px blue;*/
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+#formulario {
+	margin: 0px;
+	padding: 12px;
+}
+
+#formulario label {
+	display: inline-block;
+	width: 30%;
+}
+
+#formulario .entrada {
+	height: 20px;
+	border: none;
+	border-radius: 8px;
+	background-color: #DCD0A8;
+}
+
+#formulario label, input {
+	margin: 4px;
+}
+
+#formulario a{
+	display: inline;
+	width: 50%;
+	text-decoration: none;
+	font-family: sans-serif;
+	color: #AC947C;
+	font-size: 13px;
+	margin-left: 50%;
+}
+
+#formulario a:hover {
+	text-decoration: underline;
+}
+
+#entrar {
+	display: inline;		
+	border: none;
+	border-radius: 10px;
+	background-color: #81B7A8;
+	font-size: 16px;
+	height: 30px;
+	width: 70px;
+	font-family: sans-serif;
+	margin-top: 5px;
+	margin-left: 65%;
+}
+
+#entrar:hover {
+	border: solid 3px #064232;
+}
+
+.texto {
+	font-family: sans-serif;
+	color: #000000;
+	font-size: 16px;
+}
