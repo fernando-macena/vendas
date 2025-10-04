@@ -1,21 +1,23 @@
 body {
 	background-color: #064232;
 	margin-top: 5px;
-	overflow: hidden; /** bloquando o scroll **/
+	/**overflow: hidden; /** bloquando o scroll **/
 }
 
 #conteudo {
+	height: 100vh;
 	padding: 0px;
 	margin-top: 0px;
 	margin-left: 2%;
 	margin-right: 2%;
 	display: grid;
 	grid-template-columns: minmax(0, 400px) 1fr;
+	align-items: stretch;/** Forçando a lateral esquerda e direita a ocupar 100 da altura**/
 }
 
 #lateral-esquerda {
 	border-radius: 20px 0px 0px 0px;
-	height: 100vh;
+	
 	margin: 0px;
 	padding: 5%;
 	background-color: #81B7A8;
@@ -45,8 +47,10 @@ body {
 }
 
 #lateral-direita {
+	display: flex;
+	flex-direction: column;
 	border-radius: 0px 20px 0px 0px;
-	height: 100vh;
+	height: 100%; /** Definindo autura para configurar os elementos filhos **/
 	margin: 0px;
 	padding: 0px;
 	background-color: #D9D9D9;
@@ -132,11 +136,16 @@ body {
 	background-color: red;
 }
 
-#cadastro-toggle detais summary{
-	border: 2px solid red;
-	width: 100%;
+#conteudo-direita {
+	height: 100%;
 }
 
 #iframeProdutos {
+	display: block;
+
+	height: 100%;
+
 	border: none;
+	width: 100%;
+	
 }
