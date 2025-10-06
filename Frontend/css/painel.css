@@ -1,17 +1,19 @@
-body {
+html, body {
 	background-color: #064232;
-	margin-top: 5px;
-	/**overflow: hidden; /** bloquando o scroll **/
+
+	/**overflow: hidden;**/
 }
 
 #conteudo {
-	height: 100vh;
+	width: clamp(900px, 80vw, 1080px);
+	height: clamp(500px, 95vh, 800px);
+
+	margin: auto auto;
+
 	padding: 0px;
-	margin-top: 0px;
-	margin-left: 2%;
-	margin-right: 2%;
+	
 	display: grid;
-	grid-template-columns: minmax(0, 400px) 1fr;
+	grid-template-columns: minmax(0, 314px) 1fr;
 	align-items: stretch;/** Forçando a lateral esquerda e direita a ocupar 100 da altura**/
 }
 
@@ -21,11 +23,9 @@ body {
 	margin: 0px;
 	padding: 5%;
 	background-color: #81B7A8;
-	/** border: solid 5px yellow; **/
 }
 
 #cabecalho-esquerda {
-	/**border: solid 5px green;**/
 	margin-bottom: 10%;
 	height: 39px; 
 }
@@ -43,7 +43,7 @@ body {
 
 #conteudo-esquerda {
 	overflow-y: auto;
-	max-height: 80vh;
+	height: auto;
 }
 
 #lateral-direita {
@@ -141,11 +141,7 @@ body {
 }
 
 #iframeProdutos {
-	display: block;
-
-	height: 100%;
-
 	border: none;
+	height: 100%;
 	width: 100%;
-	
 }
