@@ -86,3 +86,11 @@ html, body {
 .inputError {
 	border-color: red;
 }
+
+#tabela_conteudo table {
+	width: 100%;
+}
+
+#tabela_conteudo table, th, td{
+	border: 1px solid black;
+}

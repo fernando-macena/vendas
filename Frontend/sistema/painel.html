@@ -6,9 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="../css/painel.css">
 
 	<script type="text/javascript">
-
-		document.addEventListener("DOMContentLoaded", mostrarMenuOpcoes())
-
 		function mostrarMenuOpcoes() {
 			let ajax = new XMLHttpRequest()
 
@@ -21,10 +18,36 @@
 				}
 			}
 		}
+
+		function mostrarDialogPainel(conteudo) {
+			var dialogo = document.getElementById("dialog-painel")
+			var divConteudo = document.getElementById("conteudo-dialog")
+
+
+			divConteudo.innerHTML = "" //Para remover o conteudo antigo
+			divConteudo.append(conteudo.cloneNode(true)) //Se não clonar, o append adiciona null
+
+			dialogo.showModal()
+		}
+
+		function fecharDialogPainel(btn) {
+			document.getElementById("dialog-painel").close()
+		}
 	</script>
 </head>
 <body>
 	<div id=conteudo>
+
+		<dialog id="dialog-painel" class="menu-dialog">
+			<button id="sair" onclick="fecharDialogPainel(this)">
+				X				
+			</button>
+
+			<div id="conteudo-dialog">		
+			</div>
+		</dialog>
+
+
 		<div id="lateral-esquerda">
 			<div id="cabecalho-esquerda">
 				<img src="../img/painel/PanelLogo.svg">
@@ -43,7 +66,7 @@
 					<img id="imagem-perfil">
 				</div>
 
-				<dialog id="menu-configuracoes">
+				<dialog id="menu-configuracoes" class="menu-dialog">
 					<button id="sair" onclick="document.getElementById('menu-configuracoes').close()">
 						X
 					</button>
@@ -51,7 +74,6 @@
 					<p>asdasdkasdkhasdh</p>
 				</dialog>
 			</div>
-
 			<div id="conteudo-direita">
 				<iframe src="produtos.html" id="iframeProdutos"></iframe>
 			</div>

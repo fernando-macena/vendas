@@ -18,15 +18,21 @@
 					input.classList.add("inputError")
 
 					resultadoValidacao.innerText = 'Digite um valor válido'
+				} else if (parseInt(log) < 5) {
+					input.value = 10
+
+					input.classList.remove("inputError")
+					resultadoValidacao.innerText = ""
+				} else if (parseInt(log) >= 100) {
+					input.value = 100
+
+					input.classList.remove("inputError")
+					resultadoValidacao.innerText = ""
 				} else {
 					input.classList.remove("inputError")
 					resultadoValidacao.innerText = ""
 				}
-			} else {
-
-			}
-
-
+			} 
 		}
 
 		function adicionaListener(idElemento, tipoValidacao) {				
@@ -49,12 +55,19 @@
 	<div id="container">
 		<div id="cabecalho">
 			<div class="botao">
-				<button><img src="../img/produto/mais.svg"><span>Novo</span></button>
+				<button onclick="window.parent.mostrarDialogPainel(document.getElementById('cadastro-produto'))"><img src="../img/produto/mais.svg"><span>Novo</span></button>
 			</div>
+
+			<div style="display: none;">			
+				<div id="cadastro-produto">
+					<p>Conteudo do cadastro</p>
+				</div>
+			</div>
+
 
 			<div id="cabecalho-conteudo">
 				<div id="mostrar" onclick="adicionaListener('mostrar', 'numerico')">
-					<span>Mostrar:</span> <input type="number" min="0" max="100"> <span id="resultadoValidacao"></span>
+					<span>Mostrar:</span> <input type="number" min="0" max="100" step="5"> <span id="resultadoValidacao"></span>
 				</div>
 
 				<div id="buscar" onclick="adicionaListener('buscar', 'textual')">
@@ -66,42 +79,26 @@
 		<div id="conteudo">
 
 			<div id="tabela_conteudo">
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				v
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<p>Tabela aqui</p>
-				<p>ASHDKAHSDHhdakjshdkjahsdkhashd</p>
-				<h1>Fim</h1>
+				<table>
+					<tr>
+						<th>Nome</th>
+						<th>Estoque</th>
+						<th>Ações</th>
+					</tr>
+					<tr>
+						<td>Creme de pentear</td>
+						<td>1</td>
+						<td>Imagem do produto</td>
+					</tr>
+					<tr>
+						<td>Produto 2</td>
+						<td>10</td>
+						<td>Ações</td>
+					</tr>
+				</table>
 			</div>
 
-		
+
 		</div>
 	</div>
 </body>

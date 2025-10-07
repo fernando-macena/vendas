@@ -107,14 +107,14 @@ html, body {
 }
 
 /** modal configurações **/
-#menu-configuracoes {
+.menu-dialog {
 	border: none;
 	border-radius: 20px;
 	height: 80vh;
 	width: 60vw;
 }
 
-#menu-configuracoes #sair {
+.menu-dialog #sair {
 	display: block;
 
 	height: 30px;
@@ -128,11 +128,11 @@ html, body {
 	margin-bottom: 12px;
 }
 
-#menu-configuracoes #sair:focus {
+.menu-dialog #sair:focus {
 	outline: none;
 }
 
-#menu-configuracoes #sair:hover{
+.menu-dialog #sair:hover{
 	background-color: red;
 }
 
