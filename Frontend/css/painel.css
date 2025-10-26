@@ -2,6 +2,7 @@ html, body {
 	background-color: #064232;
 
 	/**overflow: hidden;**/
+	max-height: 810px;
 }
 
 #conteudo {

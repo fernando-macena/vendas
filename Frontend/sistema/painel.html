@@ -14,7 +14,18 @@
 
 			ajax.onreadystatechange = () => {
 				if(ajax.readyState == 4 && ajax.status == 200) {
-					document.getElementById("conteudo-esquerda").innerHTML = ajax.responseText
+					var container = document.getElementById("conteudo-esquerda")
+					container.innerHTML = ajax.responseText
+
+					//Lógica para inserir o Script da página HTMl parcial ao DOM dessa página
+					
+					var script = container.querySelector('script[src]'); //Pegando o script da pagina solicitada atraves do ajax
+
+					var newScript = document.createElement('script');//Criando um elemento script para que o navegador execute
+
+					newScript.src = script.src; //Atribuindo o conteudo script que está sendo tratado como texto ao novo que rodará
+					document.body.appendChild(newScript); //Atribuindo o novo script a página
+					
 				}
 			}
 		}
@@ -22,31 +33,32 @@
 		function mostrarDialogPainel(conteudo) {
 			var dialogo = document.getElementById("dialog-painel")
 			var divConteudo = document.getElementById("conteudo-dialog")
+			
+			if(conteudo != null) {
 
 
-			divConteudo.innerHTML = "" //Para remover o conteudo antigo
-			divConteudo.append(conteudo.cloneNode(true)) //Se não clonar, o append adiciona null
+				divConteudo.innerHTML = "" //Para remover o conteudo antigo
+				divConteudo.append(conteudo.cloneNode(true)) //Se não clonar, o append adiciona null
+			} else {
+				divConteudo.innerHTML = "Componente sem conteudo!"
+			}
 
 			dialogo.showModal()
 		}
 
-		function fecharDialogPainel(btn) {
-			document.getElementById("dialog-painel").close()
-		}
+		
 	</script>
 </head>
 <body>
 	<div id=conteudo>
-
 		<dialog id="dialog-painel" class="menu-dialog">
-			<button id="sair" onclick="fecharDialogPainel(this)">
+			<button id="sair" onclick="document.getElementById('dialog-painel').close()">
 				X				
 			</button>
 
-			<div id="conteudo-dialog">		
+			<div id="conteudo-dialog">	
 			</div>
 		</dialog>
-
 
 		<div id="lateral-esquerda">
 			<div id="cabecalho-esquerda">
@@ -56,23 +68,25 @@
 
 			<div id="conteudo-esquerda">
 				Carregando...
+				<script>
+					document.addEventListener('DOMContentLoaded', mostrarMenuOpcoes)
+				</script>
 			</div>
 		</div> <!-- fim lateral esquerda -->
 
 		<div id="lateral-direita">
 			<div id="cabecalho-direita">			
-				<div id="avatar" onclick="document.getElementById('menu-configuracoes').showModal()">
+				<div id="avatar" onclick="mostrarDialogPainel(document.getElementById('cadastro-usuario'))">
 					<!-- Imagem de perfil -->
 					<img id="imagem-perfil">
 				</div>
 
-				<dialog id="menu-configuracoes" class="menu-dialog">
-					<button id="sair" onclick="document.getElementById('menu-configuracoes').close()">
-						X
-					</button>
-
-					<p>asdasdkasdkhasdh</p>
-				</dialog>
+				<div style="display: none">
+					<div id="cadastro-usuario">
+						<p>Nome: </p>
+						<p>Tipo: </p>
+					</div>
+				</div>
 			</div>
 			<div id="conteudo-direita">
 				<iframe src="produtos.html" id="iframeProdutos"></iframe>

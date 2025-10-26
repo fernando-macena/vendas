@@ -1,0 +1,73 @@
+.menu {
+	
+}
+
+.item-menu {
+	display: relative;
+
+	align-items: center;
+
+	padding: 10px;
+	border-radius: 8px;
+	background-color: #D9D9D9;
+
+
+	margin: 8px 0;
+}
+
+.item-menu .conteudo-menu-desativado {
+	display: none;
+
+}
+
+.item-menu .conteudo-menu-ativado {
+	display: block;
+
+	margin-left: 20px;
+}
+
+.item-menu .conteudo-menu-ativado * {
+	margin: 0px;
+
+	text-decoration: none;
+	color: black;
+}
+
+.titulo {
+	position: relative;
+	display: block;
+	margin: 0px;
+	width: 100%;
+	color: rgba(0, 0, 0, 0.4); /*Configurando a opacidade da fonte*/
+	font-size: 17px;
+
+	z-index: 0;
+}
+
+/*pseudo-elemento para guardar o background*/
+.titulo::before {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	z-index: -1;
+}
+
+.titulo.titulo-ativo::before{
+	background-image: url("../img/menu-opcoes/drop-down-icone.svg");
+	transform: rotate(180deg);
+	background-position: center left;
+
+}
+
+.titulo.titulo-desativo::before {
+	background-image: url("../img/menu-opcoes/drop-down-icone.svg");
+	transform: rotate(0deg);
+	background-position: center right;
+}
+
+.titulo:hover {
+	transform: scale(0.98);
+	cursor: default;
+}
